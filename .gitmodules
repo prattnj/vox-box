@@ -1,0 +1,3 @@
+[submodule "tts-dataset"]
+	path = tts-dataset
+	url = https://github.com/prattnj/tts-dataset
