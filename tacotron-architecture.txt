@@ -1,0 +1,54 @@
+lab 9: use t = 1
+
+---- TACOTRON 2 ARCHITECTURE ----
+
+embedding: Embedding
+encoder: Encoder*
+    convolutions: ModuleList
+	0: Sequential
+	    0: ConvNorm*
+	    1: BatchNorm1d
+	1: <same as 0>
+	2: <same as 0>
+    lstm: LSTM
+decoder: Decoder*
+    prenet: Prenet*
+	layers: ModuleList
+	    0: LinearNorm*
+	    1: LinearNorm*
+    attention_rnn: LSTMCell
+    attention_layer: Attention*
+	query_layer: LinearNorm*
+	memory_layer: LinearNorm*
+	v: LinearNorm*
+	location_layer: LocationLayer*
+	    location_conv: ConvNorm*
+	    location_dense: LinearNorm*
+    decoder_rnn: LSTMCell
+    linear_projection: LinearNorm*
+    gate_layer: LinearNorm*
+postnet: Postnet*
+    convolutions: ModuleList
+	0: Sequential
+	    0: ConvNorm*
+	    1: BatchNorm1d
+	1: Sequential
+	    0: ConvNorm*
+	    1: BatchNorm1d
+	2: <same as 1>
+	3: <same as 1>
+	4: Sequential
+	    0: ConvNorm*
+	    1: BatchNorm1d
+
+Custom classes:
+Encoder (defined above)
+Decoder (defined above)
+Prenet (defined above)
+Postnet (defined above)
+Attention (defined above)
+LocationLayer (defined above)
+LinearNorm:
+    linear_layer: Linear
+ConvNorm:
+    conv: Conv1d
