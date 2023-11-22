@@ -1,0 +1,26 @@
+from text import symbols
+
+hyperparameters = {
+  'attention_dim': 128,
+  'attention_location_kernel_size': 31,
+  'attention_location_n_filters': 32,
+  'attention_rnn_dim': 1024,
+  'decoder_rnn_dim': 1024,
+  'encoder_embed_dim': 512,
+  'encoder_kernel_size': 5,
+  'encoder_n_conv': 3,
+  'fp16_run': 0,
+  'gate_threshold': 0.5,
+  'mask_padding': True,
+  'max_decoder_steps': 1000,
+  'n_frames_per_step': 1,
+  'n_mel_channels': 80,
+  'n_symbols': len(symbols),
+  'p_attention_dropout': 0.1,
+  'p_decoder_dropout': 0.1,
+  'postnet_embed_dim': 512,
+  'postnet_kernel_size': 5,
+  'postnet_n_conv': 5,
+  'prenet_dim': 256,
+  'symbols_embedding_dim': 512,
+}
