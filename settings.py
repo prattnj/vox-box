@@ -1,4 +1,4 @@
-from text import symbols
+from util import symbols
 
 hyperparameters = {
   'attention_dim': 128,
