@@ -4,36 +4,8 @@ from torch.nn import functional as F
 from torch.autograd import Variable
 from math import sqrt
 from util.methods import to_gpu, get_mask_from_lengths
+from util.layers import ConvNorm, LinearNorm
 
-# LinearNorm
-# 1 Linear Layer
-class LinearNorm(nn.Module):
-  def __init__(self, in_features, out_features, bias=False, w_init_gain='linear'):
-    super(LinearNorm, self).__init__()
-    self.linear_layer = nn.Linear(in_features, out_features, bias=bias)
-
-    torch.nn.init.xavier_uniform_(self.linear_layer.weight, gain=torch.nn.init.calculate_gain(w_init_gain))
-
-  def forward(self, input):
-    return self.linear_layer(input)
-
-# ConvNorm
-# 1 Convolutional Layer
-class ConvNorm(nn.Module):
-  def __init__(self, in_c, out_c, kernel_size=1, stride=1, padding=None, dilation=1, bias=False, w_init_gain='linear'):
-    super(ConvNorm, self).__init__()
-
-    if padding is None:
-      assert(kernel_size % 2 == 1)
-      padding = int(dilation * (kernel_size - 1) / 2)
-
-    self.conv = nn.Conv1d(in_c, out_c, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, bias=bias)
-
-    torch.nn.init.xavier_uniform_(self.conv.weight, gain=torch.nn.init.calculate_gain(w_init_gain))
-
-  def forward(self, input):
-    return self.conv(input)
-  
 # Location Layer (used in Attention)
 class LocationLayer(nn.Module):
   def __init__(self, attention_n_filters, attention_kernel_size, attention_dim):
