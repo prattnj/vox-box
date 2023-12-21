@@ -44,5 +44,3 @@ hparams = {
   'starting_point': 'saved-models/tacotron2_nvidia.pt', # None for a fresh model
   'dataset_dir': 'tts-dataset/audio-dataset',
 }
-
-# hello Molly
