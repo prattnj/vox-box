@@ -6,7 +6,7 @@ Voice-cloning TTS project: a from-scratch PyTorch reimplementation of NVIDIA's T
 
 There is no build system, test suite, linter, or dependency manifest. Requires Python with `torch`, `numpy`, `scipy`, `librosa`, and `inflect`, plus a CUDA GPU (all code calls `.cuda()` unconditionally).
 
-- **Train:** `python train.py` — configured entirely by `hparams` in `settings.py` (no CLI args). Note: the training loop is currently work-in-progress (it `break`s after one batch and doesn't step the optimizer or save checkpoints).
+- **Train:** `python train.py` — configured entirely by `hparams` in `settings.py` (no CLI args). Fine-tunes from `starting_point`, clips gradients, validates after each epoch, and saves `checkpoint_last.pt`/`checkpoint_best.pt` (by validation loss) to `saved-models/`.
 - **Inference:** `python execute.py` — interactive; prompts for text and output filename, writes a `.wav` to `results/`. Model choice is set by editing the `SETTINGS` block at the top of `execute.py` (`tacotron_sd_filepath = None` uses NVIDIA's pretrained hub model instead of a local checkpoint).
 
 ## Architecture

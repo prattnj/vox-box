@@ -51,9 +51,11 @@ recordings.
 python train.py
 ```
 
-There are no CLI flags — everything is controlled via `hparams` in `settings.py`. Fine-tuned checkpoints
-are written to `saved-models/` as dicts with a `'state_dict'` key (matching the format NVIDIA's
-checkpoint uses, so they load the same way).
+There are no CLI flags — everything is controlled via `hparams` in `settings.py`. Training starts from
+the `starting_point` checkpoint, validates after every epoch, and writes two checkpoints to
+`saved-models/`: `checkpoint_last.pt` (most recent epoch) and `checkpoint_best.pt` (lowest validation
+loss). Checkpoints are dicts with a `'state_dict'` key (matching the format NVIDIA's checkpoint uses,
+so they load the same way).
 
 ## Inference
 

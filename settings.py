@@ -38,9 +38,12 @@ hparams = {
 
   # Train
   'batch_size': 12,
-  'learning_rate': 1e-3,
+  'learning_rate': 1e-4, # lower than scratch training (1e-3) since we're fine-tuning
   'weight_decay': 1e-6,
-  'n_epochs': 1,
+  'grad_clip_thresh': 1.0,
+  'n_epochs': 50,
+  'seed': 1234,
   'starting_point': 'tacotron2_nvidia.pt', # None for a fresh model
   'dataset_dir': 'tts-dataset/audio-dataset',
+  'checkpoint_dir': 'saved-models',
 }
