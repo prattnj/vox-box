@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Model checkpoints / training artifacts (base model at repo root is kept)
+saved-models/
+*.pt
+*.pth
+!tacotron2_nvidia.pt
+
+# Generated audio output
+results/
+*.wav
+
+# Editor / OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

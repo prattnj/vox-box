@@ -9,7 +9,7 @@ from util import text_to_sequence
 
 ##### SETTINGS #####
 
-# 'saved-models/tacotron2_nvidia.pt'
+# 'tacotron2_nvidia.pt'
 tacotron_sd_filepath = 'saved-models/test50.pt' # 'None' for default pretrained Tacotron 2
 sample_rate = 22050 # Model was likely trained on 22050 Hz
 result_dir = 'results'

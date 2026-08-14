@@ -41,6 +41,6 @@ hparams = {
   'learning_rate': 1e-3,
   'weight_decay': 1e-6,
   'n_epochs': 1,
-  'starting_point': 'saved-models/tacotron2_nvidia.pt', # None for a fresh model
+  'starting_point': 'tacotron2_nvidia.pt', # None for a fresh model
   'dataset_dir': 'tts-dataset/audio-dataset',
 }
